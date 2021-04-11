@@ -15,6 +15,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 public class OptionChainDeleteCookies {
@@ -48,11 +50,14 @@ System.setProperty("webdriver.chrome.driver", "C:\\Users\\Ramesh\\Downloads\\chr
     driver.findElement(By.xpath("//*[contains(text(),'BANKNIFTY')]")).click();
     driver.manage().deleteAllCookies();
     
-    Thread.sleep(3000);
+    wait(".//*[@id='downloadOCTable']");
     
   //  driver.findElement(By.id("downloadOCTable")).click();
-    driver.findElement(By.id("downloadOCTable")).click();
-    Thread.sleep(3000);
+    driver.findElement(By.xpath(".//*[@id='downloadOCTable']")).click();
+    
+    
+    driver.findElement(By.xpath("..//*[text()='Invest']")).click();
+   
    // rename();
 
 	}
@@ -112,4 +117,14 @@ cell.setCellFormula("SUM(B2:B95)");
 
 }
 */
+	
+	public void wait(String element)
+	{
+		
+		WebDriverWait w = new WebDriverWait(driver,3);
+	      // presenceOfElementLocated condition
+	      w.until(ExpectedConditions.presenceOfElementLocated (By.xpath(element)));
+		
+	}
+
 }
