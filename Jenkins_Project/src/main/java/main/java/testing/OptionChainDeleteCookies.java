@@ -56,7 +56,7 @@ System.setProperty("webdriver.chrome.driver", "C:\\Users\\Ramesh\\Downloads\\chr
     driver.findElement(By.xpath(".//*[@id='downloadOCTable']")).click();
     
     
-    driver.findElement(By.xpath("..//*[text()='Invest']")).click();
+    driver.findElement(By.xpath(".//*[text()='Invest']")).click();
    
    // rename();
 
